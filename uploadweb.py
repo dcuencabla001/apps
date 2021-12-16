@@ -1,7 +1,7 @@
 import streamlit as st
 import pandas as pd
 
-st.image(image='logoEroski.png')
+#st.image(image='logoEroski.png')
 
 st.title('Carga Diaria Plataforma')
 st.header('Subir el archivo en formato CSV con la carga diaria de la plataforma')
