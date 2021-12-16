@@ -24,7 +24,7 @@ st.header('Subir el archivo en formato EXCEL con la carga diaria de la plataform
 uploaded_file = st.file_uploader("Choose a file")
 
 if uploaded_file is not None:
-    df = pd.read_excel(uploaded_file)
+    df = pd.read_excel(uploaded_file, sheet_name=1)
     write_dataframe_to_csv_blob(df, 'datauser', '4d_nueva_planificacion_plataforma.csv', ";", ".", blobService, header=True)
     st.header("archivo guardado correctamente")
     st.write(uploaded_file)
