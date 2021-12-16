@@ -22,10 +22,9 @@ st.title('Carga Diaria Plataforma')
 st.header('Subir el archivo en formato CSV con la carga diaria de la plataforma')
 
 uploaded_file = st.file_uploader("Choose a file")
-a = uploaded_file.name
-
-check1 = a.endswith(".csv")
 if uploaded_file is not None:
+    a = uploaded_file.name
+    check1 = a.endswith(".csv")
     if check1:
         df = pd.read_csv(uploaded_file)
         st.write("el archivo es correcto")
