@@ -24,7 +24,10 @@ st.header('Subir el archivo en formato CSV con la carga diaria de la plataforma'
 uploaded_file = st.file_uploader("Choose a file")
 a = uploaded_file.name
 if uploaded_file is not None:
-    df = pd.read_excel(uploaded_file)
-    #write_dataframe_to_csv_blob(df, 'datauser', '4d_nueva_planificacion_plataforma.csv', ";", ".", blobService, header=True)
-    st.header("archivo guardado correctamente")
-    #st.write(df)
+    if a.endswith(".csv"):
+        df = pd.read_csv(uploaded_file)
+        write_dataframe_to_csv_blob(df, 'datauser', '4d_nueva_planificacion_plataforma.csv', ";", ".", blobService, header=True)
+        st.header("archivo guardado correctamente")
+        st.write(df)
+   else:
+        st.write("el formato del archivo no es CSV")
