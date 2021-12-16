@@ -26,7 +26,7 @@ a = uploaded_file.name
 if uploaded_file is not None:
     if a.endswith(".csv"):
         df = pd.read_csv(uploaded_file)
-        a = str(df.dtypes)
+        a = df.iloc[:, 0].dtypes
         st.write(a)
         st.write("el formato del archivo no es CSV")
         
