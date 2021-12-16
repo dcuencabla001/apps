@@ -27,4 +27,4 @@ if uploaded_file is not None:
     df = pd.read_csv(uploaded_file)
     write_dataframe_to_csv_blob(df, 'datauser', '4d_nueva_planificacion_plataforma.csv', ";", ".", blobService, header=True)
     st.header("archivo guardado correctamente")
-    st.write(uploaded_file)
+    st.write(df)
