@@ -26,8 +26,12 @@ a = uploaded_file.name
 if uploaded_file is not None:
     if a.endswith(".csv"):
         df = pd.read_csv(uploaded_file)
+        write(df.dtypes)
+        button = st.button("Guardar en Azure")
+        st.write("el formato del archivo no es CSV")
+        
+    
+    if button:
         write_dataframe_to_csv_blob(df, 'datauser', '4d_nueva_planificacion_plataforma.csv', ";", ".", blobService, header=True)
         st.header("archivo guardado correctamente")
         st.write(df)
-    else:
-        st.write("el formato del archivo no es CSV")
