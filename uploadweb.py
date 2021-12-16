@@ -23,14 +23,14 @@ st.header('Subir el archivo en formato CSV con la carga diaria de la plataforma'
 
 uploaded_file = st.file_uploader("Choose a file")
 a = uploaded_file.name
+
+check1 = a.endswith(".csv")
 if uploaded_file is not None:
-    if a.endswith(".csv"):
+    if check1:
         df = pd.read_csv(uploaded_file)
-        a = df.columns[1].dtypes
-        st.write(a)
-        st.write("el formato del archivo no es CSV")
-        
-    if st.button("Guardar en Azure"):
-        write_dataframe_to_csv_blob(df, 'datauser', '4d_nueva_planificacion_plataforma.csv', ";", ".", blobService, header=True)
-        st.header("archivo guardado correctamente")
-        st.write(df)
+        st.write("el archivo es correcto")
+        if st.button("Guardar en Azure"):
+            write_dataframe_to_csv_blob(df, 'datauser', '4d_nueva_planificacion_plataforma.csv', ";", ".", blobService, header=True)
+            st.header("archivo guardado correctamente")
+            st.write(df)
+    else: st.write("el formato del archivo es incorrecto")
