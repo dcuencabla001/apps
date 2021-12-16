@@ -2,4 +2,3 @@ streamlit
 pandas
 azure.storage.blob
 openpyxl
-xlrd
