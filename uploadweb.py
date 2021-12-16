@@ -26,7 +26,8 @@ a = uploaded_file.name
 if uploaded_file is not None:
     if a.endswith(".csv"):
         df = pd.read_csv(uploaded_file)
-        st.write(df.dtypes)
+        a = str(df.dtypes)
+        st.write(a)
         st.write("el formato del archivo no es CSV")
         
     if st.button("Guardar en Azure"):
