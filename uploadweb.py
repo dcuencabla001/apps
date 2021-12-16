@@ -29,5 +29,5 @@ if uploaded_file is not None:
         write_dataframe_to_csv_blob(df, 'datauser', '4d_nueva_planificacion_plataforma.csv', ";", ".", blobService, header=True)
         st.header("archivo guardado correctamente")
         st.write(df)
-   else:
+    else:
         st.write("el formato del archivo no es CSV")
